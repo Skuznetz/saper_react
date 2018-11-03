@@ -1,9 +1,17 @@
 import { fromJS } from 'immutable';
-import { startGame,defaultGameState } from '../utils/minesweeper';
+import { startGame } from '../utils/minesweeper';
 
 import {
     START_GAME
 } from '../actions';
+
+const DEFAULT_STATE = fromJS({
+    board: [],
+    cols: 4,
+    rows: 6,
+    mines: 10,
+    moves: 0
+});
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {

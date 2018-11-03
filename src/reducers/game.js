@@ -1,3 +1,6 @@
-export default (state={}, action) => {
-    return state;
-}
+import { fromJS } from 'immutable';
+import { startGame,defaultGameState } from '../utils/minesweeper';
+
+import {
+    START_GAME
+} from '../actions';

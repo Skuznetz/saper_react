@@ -17,4 +17,8 @@ export function generateBoard({ cols, rows, mines }) {
 
     const safeCells = repeat(cols * rows - mines, cell);
     const mineCells = repeat(mines, cell.set('isMine', true));
+     return safeCells
+        .concat(mineCells)
+        .sort(() => Math.random() - 0.5)
+        .map((с, idx) => с.set('id', idx));
 }

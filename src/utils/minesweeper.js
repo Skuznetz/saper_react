@@ -1,6 +1,10 @@
 import { fromJS, Map, List } from 'immutable';
 import repeat from './repeat';
 
+export function isTileOnWEdge(game, tileId) {
+    return tileId % game.get('cols') === 0;
+}
+
 export function startGame(params) {
     const game = fromJS({
         cols: params.cols,

@@ -44,6 +44,14 @@ export function startGame(params) {
     return addMineCounts(game);
 }
 
+export function addMileCounts(game) {
+    const newBoard = game.get('board').map(tile =>
+        tile.set('mineCount', getMineCount(game, tile.get('id')))
+    );
+
+    return game.set('board', newBoard);
+}
+
 export function generateBoard({ cols, rows, mines }) {
     const cell = Map({ isRevealed: false, isFlagged: false });
 

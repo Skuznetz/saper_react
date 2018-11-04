@@ -44,6 +44,20 @@ export function startGame(params) {
     return addMineCounts(game);
 }
 
+
+export function getAdjacentTileIds(game, tileId) {
+    return directions
+        .map(direction => direction(game, tileId))
+        .toList()
+        .filter(isTileIdValid);
+}
+
+export function getAdjacentTiles(game, tileId) {
+    const adjacentTileIds = getAdjacentTileIds(game, tileId);
+
+    return adjacentTileIds.map(id => game.getIn(['board', id]));
+}
+
 export function getMineCount(game, tileId) {
     const adjacentTiles = getAdjacentTiles(game, tileId);
 

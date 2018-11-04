@@ -10,7 +10,7 @@ export function startGame(params) {
         moves: 0,
         startedAt: Date.now()
     });
-    return game;
+    return addMineCounts(game);
 }
 
 export function generateBoard({ cols, rows, mines }) {

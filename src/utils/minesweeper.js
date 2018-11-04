@@ -1,6 +1,18 @@
 import { fromJS, Map, List } from 'immutable';
 import repeat from './repeat';
 
+export function getTileId(game, tileId) {
+    if (tileId < 0 || tileId > game.get('cols') * game.get('rows') - 1) {
+        return null;
+    }
+
+    if (game.get('board').has(tileId)) {
+        return tileId
+    }
+
+    return null;
+}
+
 export function isTileOnWEdge(game, tileId) {
     return tileId % game.get('cols') === 0;
 }

@@ -44,6 +44,12 @@ export function startGame(params) {
     return addMineCounts(game);
 }
 
+export function getMineCount(game, tileId) {
+    const adjacentTiles = getAdjacentTiles(game, tileId);
+
+    return adjacentTiles.filter(isTileMine).size;
+}
+
 export function addMileCounts(game) {
     const newBoard = game.get('board').map(tile =>
         tile.set('mineCount', getMineCount(game, tile.get('id')))

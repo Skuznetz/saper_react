@@ -21,6 +21,10 @@ export function isTileOnEEdge(game, tileId) {
     return tileId % game.get('cols') === game.get('cols') - 1;
 }
 
+export function isTileIdValid(tileId) {
+    return !!tileId;
+}
+
 const directions = new Map({
     n: (game, tileId) => getTileId(game, tileId - game.get('cols')),
     nw: (game, tileId) => isTileOnWEdge(game, tileId) ? null : getTileId(game, tileId - game.get('cols') - 1),

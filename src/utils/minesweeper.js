@@ -9,6 +9,17 @@ export function isTileOnEEdge(game, tileId) {
     return tileId % game.get('cols') === game.get('cols') - 1;
 }
 
+const directions = new Map({
+    n: (game, tileId) => getTileId(game, tileId - game.get('cols')),
+    nw: (game, tileId) => isTileOnWEdge(game, tileId) ? null : getTileId(game, tileId - game.get('cols') - 1),
+    ne: (game, tileId) => isTileOnEEdge(game, tileId) ? null : getTileId(game, tileId - game.get('cols') + 1),
+    e: (game, tileId) => isTileOnEEdge(game, tileId) ? null : getTileId(game, tileId + 1),
+    se: (game, tileId) => isTileOnEEdge(game, tileId) ? null : getTileId(game, tileId + game.get('cols') + 1),
+    s: (game, tileId) => getTileId(game, tileId + game.get('cols')),
+    sw: (game, tileId) => isTileOnWEdge(game, tileId) ? null : getTileId(game, tileId + game.get('cols') - 1),
+    w: (game, tileId) => isTileOnWEdge(game, tileId) ? null : getTileId(game, tileId - 1)
+});
+
 export function startGame(params) {
     const game = fromJS({
         cols: params.cols,

@@ -21,6 +21,10 @@ export function isTileOnEEdge(game, tileId) {
     return tileId % game.get('cols') === game.get('cols') - 1;
 }
 
+export function isTileMine(tile) {
+    return tile.get('isMine');
+}
+
 export function isTileIdValid(tileId) {
     return !!tileId;
 }

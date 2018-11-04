@@ -5,6 +5,10 @@ export function isTileOnWEdge(game, tileId) {
     return tileId % game.get('cols') === 0;
 }
 
+export function isTileOnEEdge(game, tileId) {
+    return tileId % game.get('cols') === game.get('cols') - 1;
+}
+
 export function startGame(params) {
     const game = fromJS({
         cols: params.cols,

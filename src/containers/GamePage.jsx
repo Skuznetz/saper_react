@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { List } from 'immutable';
+
 import * as actions from '../actions';
 import GameBoard from './GameBoard.jsx';
 

@@ -34,5 +34,11 @@ function getGameBoard(state) {
     }, new List());
 }
 
+function mapStateToProps(state, ownProps) {
+    return {
+        board: getGameBoard(state)
+    };
+}
+
 
 

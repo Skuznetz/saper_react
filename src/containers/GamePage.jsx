@@ -13,7 +13,7 @@ export default class Game extends Component {
     }
     render() {
         return (
-            <div>Hello</div>
+            <GameBoard />
         );
     }
 }

@@ -15,6 +15,7 @@ export default class Game extends Component {
     }
     render() {
         return (
+            <div>hello</div>,
             <GameBoard />
         );
     }

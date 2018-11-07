@@ -88,5 +88,5 @@ export function generateBoard({ cols, rows, mines }) {
      return safeCells
         .concat(mineCells)
         .sort(() => Math.random() - 0.5)
-        .map((с, idx) => с.set('id', idx));
+        .map((tile, idx) => tile.set('id', idx));
 }

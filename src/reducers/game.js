@@ -2,7 +2,9 @@ import { fromJS } from 'immutable';
 import { startGame, revealTile, flagTile } from '../utils/minesweeper';
 
 import {
-    START_GAME
+    START_GAME,
+    TOGGLE_FLAGGED_TILE,
+    REVEAL_TILE
 } from '../actions';
 
 const DEFAULT_STATE = fromJS({

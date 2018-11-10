@@ -108,3 +108,25 @@ export function generateBoard({ cols, rows, mines }) {
         .sort(() => Math.random() - 0.5)
         .map((tile, idx) => tile.set('id', idx));
 }
+
+export function revealAdjacentSafeTiles(game, tileId) {
+    if (game.getIn(['board', tileId, 'isMine'])) {
+        return game;
+    }
+
+    if (game.getIn(['board', tileId, 'mineCount']) === 0) {
+        const adjacentTileIds = getAdjacentTileIds(game, tileId);
+
+        return adjacentTileIds.reduce(
+            (g, tileId) => {
+                const isRevealed = isTileRevealed(g.getIn(['board', tileId]));
+
+                return isRevealed ? g : revealAdjacentSafeTiles(g, tileId);
+            },
+            setTileRevealed(game, tileId)
+        );
+    }
+
+    return setTileRevealed(game, tileId);
+
+}

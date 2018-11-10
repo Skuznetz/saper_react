@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { startGame } from '../utils/minesweeper';
+import { startGame, revealTile, flagTile } from '../utils/minesweeper';
 
 import {
     START_GAME

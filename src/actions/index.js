@@ -6,3 +6,13 @@ export const startGame = query => ({
     rows: 8,
     mines: 12
 });
+
+export const revealTile = tileId => ({
+    type: REVEAL_TILE,
+    tileId
+});
+
+export const toggleFlaggedTile = tileId => ({
+    type: TOGGLE_FLAGGED_TILE,
+    tileId
+});

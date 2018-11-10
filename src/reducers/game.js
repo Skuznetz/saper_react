@@ -22,6 +22,16 @@ export default (state = DEFAULT_STATE, action) => {
 
             return startGame({ rows, cols, mines });
         }
+
+        
+        case REVEAL_TILE: {
+            return revealTile(state, action.tileId);
+        }
+
+        case TOGGLE_FLAGGED_TILE: {
+            return flagTile(state, action.tileId);
+        }
+        
              default: {
             return state;
         }

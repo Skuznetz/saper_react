@@ -130,3 +130,7 @@ export function revealAdjacentSafeTiles(game, tileId) {
     return setTileRevealed(game, tileId);
 
 }
+
+export function flagTile(game, tileId) {
+    return game.setIn(['board', tileId, 'isFlagged'], !game.getIn(['board', tileId, 'isFlagged']));
+}

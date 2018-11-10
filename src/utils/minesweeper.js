@@ -33,6 +33,10 @@ export function setTileRevealed(game, tileId) {
     return game.setIn(['board', tileId, 'isRevealed'], true);
 }
 
+export function isTileRevealed(tile) {
+    return tile.get('isRevealed');
+}
+
 const directions = new Map({
     n: (game, tileId) => getTileId(game, tileId - game.get('cols')),
     nw: (game, tileId) => isTileOnWEdge(game, tileId) ? null : getTileId(game, tileId - game.get('cols') - 1),

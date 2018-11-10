@@ -88,6 +88,16 @@ export function addMineCounts(game) {
     return game.set('board', newBoard);
 }
 
+export function revealAllMines(game) {
+    const newBoard = game.get('board').map(tile =>
+        tile.get('isMine')
+        ? tile.set('isRevealed', true)
+        : tile
+    );
+
+    return game.set('board', newBoard);
+}
+
 export function generateBoard({ cols, rows, mines }) {
     const cell = Map({ isRevealed: false, isFlagged: false });
 

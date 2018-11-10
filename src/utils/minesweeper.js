@@ -134,3 +134,13 @@ export function revealAdjacentSafeTiles(game, tileId) {
 export function flagTile(game, tileId) {
     return game.setIn(['board', tileId, 'isFlagged'], !game.getIn(['board', tileId, 'isFlagged']));
 }
+
+export function revealTile(game, tileId) {
+    const updatedGame = game
+        .set('moves', game.get('moves') + 1)
+        .setIn(['board', tileId, 'isRevealed'], true);
+
+    return updatedGame.getIn(['board', tileId, 'isMine'])
+        ? revealAllMines(updatedGame)
+        : revealAdjacentSafeTiles(updatedGame, tileId);
+}

@@ -4,7 +4,9 @@ import { List } from 'immutable';
 
 import * as actions from '../actions';
 import GameBoard from './GameBoard.jsx';
+import GameStatus from './GameStatus.jsx';
 
+import Footer from '../components/Footer.jsx';
 @connect(
     null,
     actions

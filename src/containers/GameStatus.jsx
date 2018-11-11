@@ -13,6 +13,29 @@ export default class GameStatus extends Component {
     }
 }
 
+function getGameStatus(state) {
+    const isWin = state.getIn(['game', 'board']).reduce(
+        (status, tile) => tile.get('isMine') ? status : status && tile.get('isRevealed'),
+        true
+    );
+
+    if (isWin) {
+        return 'WINNER';
+    }
+
+    const isLoose = state.getIn(['game', 'board']).reduce(
+        (status, tile) => tile.get('isMine') ? status && tile.get('isRevealed') : status,
+        true
+    );
+
+    if (isLoose) {
+        return 'LOOSER';
+    }
+
+
+    return 'PLAYING';
+}
+
 function mapStateToProps(state, ownProps) {
     return {
         status: getGameStatus(state)

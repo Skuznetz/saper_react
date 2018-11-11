@@ -16,7 +16,8 @@ export default class GameBoard extends Component {
         return (
             <Board
                 rows={board}
-               
+                onReveal={revealTile}
+                onToggleFlagged={toggleFlaggedTile}
             />
         );
     }

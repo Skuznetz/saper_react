@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 
 import EmojiStatus from '../components/EmojiStatus.jsx';
 
+const statusEmojis = {
+    'LOOSER': 'dizzy-face',
+    'WINNER': 'sunglasses',
+    'PLAYING': 'smiley'
+};
+
 @connect(mapStateToProps)
 
 export default class GameStatus extends Component {

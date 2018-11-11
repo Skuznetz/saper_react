@@ -11,7 +11,7 @@ import Board from '../components/Board.jsx';
 )
 export default class GameBoard extends Component {
     render() {
-        const { board} =this.props;
+        const { board, revealTile, toggleFlaggedTile} =this.props;
 
         return (
             <Board
